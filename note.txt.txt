@@ -52,3 +52,21 @@ const Greet = () => {
 }
 
 export default Greet;
+
+6. class components
+
+previously class components were used since functional component didn't have state
+
+class component have state, have render method that returns a JSX
+
+extend react component class
+
+import { Component } from "react";
+
+class Welcome extends Component {
+  render() {
+    return <h1>Welcome to React Class Component</h1>;
+  }
+}
+
+export default Welcome;
