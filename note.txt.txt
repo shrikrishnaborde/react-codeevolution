@@ -109,3 +109,22 @@ ideal way to pass props
 const Greet = ({name,heroName} = {}) => {
   return <h1>Hello {name} a.k.a {heroName}</h1>
 }
+
+Childern props :
+
+if we want to pass a HTML to our component, we can pass it using childern props
+
+ <Greet name="Bruce" heroName="Batman">
+        <p>Children props</p>
+ </Greet>
+ 
+ and use it child component as below
+ 
+const Greet = (props) => {
+  return (
+    <div>
+      <h1>Hello {props.name} a.k.a {props.heroName}</h1>
+      {props.children}
+    </div>
+  )
+}
