@@ -103,3 +103,9 @@ and while calling componets, we can pass props like
       <Greet name="Alice"/>
       <Greet name="Kane"/>
     </div>
+	
+ideal way to pass props 
+
+const Greet = ({name,heroName} = {}) => {
+  return <h1>Hello {name} a.k.a {heroName}</h1>
+}

@@ -1,5 +1,5 @@
-const Greet = (props) => {
-  return <h1>Hello {props.name}</h1>
+const Greet = ({name,heroName} = {}) => {
+  return <h1>Hello {name} a.k.a {heroName}</h1>
 }
 
 export default Greet;
