@@ -1,0 +1,9 @@
+1. Introdunction
+
+React is JS library. Does not support routing and http request.
+Created and maintained by Facebook. Component bases architecture.
+
+2. Hello world
+
+Use CRA for creating project
+npx create-react-app hello-world
