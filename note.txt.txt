@@ -141,9 +141,46 @@ class Welcome extends Component {
 
     );
   }
+  
+
+
 }
 
 here this.props is reserved keyword
 
 props are immutable, meand readonly , we can't and shouldn't add an new keys to props or change 
 ay of the key value
+  
+
+9. State
+
+props are immutable and passes as input to the component
+
+to preserve the behaviour changes on actions in the component, we store the behaviour in state
+
+previously only class component used to have state and maintained using this.state object and setState method
+
+class Message extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      message : 'Welcome Visitor'
+    }
+  }
+
+  changeMessage(){  
+    this.setState({
+      message: 'Thank you for subscribing'
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+        <button onClick={() => {this.changeMessage()}}>Subscribe</button>
+      </div>
+
+    );
+  }
