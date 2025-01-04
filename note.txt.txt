@@ -218,3 +218,47 @@ class Message extends Component {
     //wrong way
     //console.log(this.state.count);
   }
+  
+  React clubs setState call together, so if your state is dependent on previous state
+  
+  we ca n do it like below
+  
+  wrong way:
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    }, () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
+
+  incrementCountByFive(){ 
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+  }
+  
+  correct way:
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }), () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }

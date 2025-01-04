@@ -12,9 +12,9 @@ class Counter extends Component {
     //wrong way
     // this.state.count = this.state.count + 1;
     
-    this.setState({
-      count: this.state.count + 1
-    }, () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }), () => {
       console.log('Callback value', this.state.count);
     })
 
@@ -22,11 +22,19 @@ class Counter extends Component {
     //console.log(this.state.count);
   }
 
+  incrementCountByFive(){ 
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+  }
+
   render(){
     return(
       <div>
         <h1>{this.state.count}</h1>
-        <button onClick={() => this.incrementCount()}>Increment</button>
+        <button onClick={() => this.incrementCountByFive()}>Increment</button>
       </div>
     )
   }
