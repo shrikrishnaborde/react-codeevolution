@@ -7,3 +7,17 @@ Created and maintained by Facebook. Component bases architecture.
 
 Use CRA for creating project
 npx create-react-app hello-world
+
+3. file structure
+
+index.html in public folder is the html that is erved to the client
+it has a root node with id "root" where index.js embed the App component
+
+4. components
+
+two types of components in react-app
+
+functional components : functions that returns HTML
+
+class components : ES6 classes that extends Component class of React, must have render method that returns HTML
+
