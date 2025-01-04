@@ -21,3 +21,26 @@ functional components : functions that returns HTML
 
 class components : ES6 classes that extends Component class of React, must have render method that returns HTML
 
+5. Functonal components
+
+function that return JSX Code, need to embed this function in other component to reflect on UI
+
+Non ES6 syntax :
+
+function Greet () {
+  return <h1>Hello People</h1>
+}
+
+export default Greet;
+
+and import it as below:
+
+import Greet from './components/Greet';
+
+function App() {
+  return (
+    <div className="App">
+      <Greet />
+    </div>
+  );
+}
