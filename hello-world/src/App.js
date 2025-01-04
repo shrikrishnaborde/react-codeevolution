@@ -1,5 +1,6 @@
 import './App.css';
 import Greet from './components/Greet';
+import Welcome from './components/Welcome';
 
 function App() {
   return (
@@ -7,12 +8,9 @@ function App() {
       <Greet name="Bruce" heroName="Batman">
         <p>Children props</p>
       </Greet>
-      <Greet name="Diana" heroName="wonder women">
-      </Greet>
-      <Greet name="Alice" heroName="queen">
-      </Greet>
-      <Greet name="Kane" heroName="Ghost">
-      </Greet>
+      <Welcome name="Clark" heroName="Superman">
+        <p>Class Childrn props</p>
+      </Welcome>
     </div>
   );
 }

@@ -128,3 +128,22 @@ const Greet = (props) => {
     </div>
   )
 }
+
+we can add props in class component like below
+
+class Welcome extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Welcome {this.props.name} a.k.a {this.props.heroName}</h1>
+        {this.props.children}
+      </div>
+
+    );
+  }
+}
+
+here this.props is reserved keyword
+
+props are immutable, meand readonly , we can't and shouldn't add an new keys to props or change 
+ay of the key value
