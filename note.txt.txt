@@ -70,3 +70,17 @@ class Welcome extends Component {
 }
 
 export default Welcome;
+
+7. JSX
+
+make react code simpler and easier to uderstand
+
+we can wite code in react app without JSX but it incrases complexity
+
+without JSX, react provides createElement for each tag
+
+differnec between HTML and JSX
+
+class in HTML -> className in JSX
+
+smallcase for event names onclick -> camelCase in JSX onClick
