@@ -184,3 +184,81 @@ class Message extends Component {
 
     );
   }
+  
+ 10. setState
+ 
+ state can be update directly only in the class constructor
+ other than that only setState method should be used to update state,
+ call to setState rerenders the component, hence changes are reflected in the UI
+ 
+   incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  
+  
+  setState call is async in nature, if we want to do any action after
+  the state is update, we can do it in callback function that is provided
+  as secong argument to setState method
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    }, () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
+  
+  React clubs setState call together, so if your state is dependent on previous state
+  
+  we ca n do it like below
+  
+  wrong way:
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    }, () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
+
+  incrementCountByFive(){ 
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+  }
+  
+  correct way:
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }), () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
