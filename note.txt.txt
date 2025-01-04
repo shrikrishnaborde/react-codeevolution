@@ -84,3 +84,66 @@ differnec between HTML and JSX
 class in HTML -> className in JSX
 
 smallcase for event names onclick -> camelCase in JSX onClick
+
+8. props
+
+input passed to functional components
+
+const Greet = (props) => {
+  return <h1>Hello {props.name}</h1>
+}
+
+export default Greet;
+
+and while calling componets, we can pass props like
+
+<div className="App">
+      <Greet name="Bruce"/>
+      <Greet name="Diana"/>
+      <Greet name="Alice"/>
+      <Greet name="Kane"/>
+    </div>
+	
+ideal way to pass props 
+
+const Greet = ({name,heroName} = {}) => {
+  return <h1>Hello {name} a.k.a {heroName}</h1>
+}
+
+Childern props :
+
+if we want to pass a HTML to our component, we can pass it using childern props
+
+ <Greet name="Bruce" heroName="Batman">
+        <p>Children props</p>
+ </Greet>
+ 
+ and use it child component as below
+ 
+const Greet = (props) => {
+  return (
+    <div>
+      <h1>Hello {props.name} a.k.a {props.heroName}</h1>
+      {props.children}
+    </div>
+  )
+}
+
+we can add props in class component like below
+
+class Welcome extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Welcome {this.props.name} a.k.a {this.props.heroName}</h1>
+        {this.props.children}
+      </div>
+
+    );
+  }
+}
+
+here this.props is reserved keyword
+
+props are immutable, meand readonly , we can't and shouldn't add an new keys to props or change 
+ay of the key value
