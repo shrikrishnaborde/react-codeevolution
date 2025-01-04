@@ -52,3 +52,54 @@ const Greet = () => {
 }
 
 export default Greet;
+
+6. class components
+
+previously class components were used since functional component didn't have state 
+
+class component have state, have render method that returns a JSX
+
+extend react component class
+
+import { Component } from "react";
+
+class Welcome extends Component {
+  render() {
+    return <h1>Welcome to React Class Component</h1>;
+  }
+}
+
+export default Welcome;
+
+7. JSX
+
+make react code simpler and easier to uderstand
+
+we can wite code in react app without JSX but it incrases complexity
+
+without JSX, react provides createElement for each tag
+
+differnec between HTML and JSX
+
+class in HTML -> className in JSX
+
+smallcase for event names onclick -> camelCase in JSX onClick
+
+8. props
+
+input passed to functional components
+
+const Greet = (props) => {
+  return <h1>Hello {props.name}</h1>
+}
+
+export default Greet;
+
+and while calling componets, we can pass props like
+
+<div className="App">
+      <Greet name="Bruce"/>
+      <Greet name="Diana"/>
+      <Greet name="Alice"/>
+      <Greet name="Kane"/>
+    </div>
