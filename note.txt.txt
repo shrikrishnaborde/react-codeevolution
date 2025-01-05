@@ -141,9 +141,150 @@ class Welcome extends Component {
 
     );
   }
+  
+
+
 }
 
 here this.props is reserved keyword
 
 props are immutable, meand readonly , we can't and shouldn't add an new keys to props or change 
 ay of the key value
+  
+
+9. State
+
+props are immutable and passes as input to the component
+
+to preserve the behaviour changes on actions in the component, we store the behaviour in state
+
+previously only class component used to have state and maintained using this.state object and setState method
+
+class Message extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+      message : 'Welcome Visitor'
+    }
+  }
+
+  changeMessage(){  
+    this.setState({
+      message: 'Thank you for subscribing'
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+        <button onClick={() => {this.changeMessage()}}>Subscribe</button>
+      </div>
+
+    );
+  }
+  
+ 10. setState
+ 
+ state can be update directly only in the class constructor
+ other than that only setState method should be used to update state,
+ call to setState rerenders the component, hence changes are reflected in the UI
+ 
+   incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+  
+  
+  setState call is async in nature, if we want to do any action after
+  the state is update, we can do it in callback function that is provided
+  as secong argument to setState method
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    }, () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
+  
+  React clubs setState call together, so if your state is dependent on previous state
+  
+  we ca n do it like below
+  
+  wrong way:
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState({
+      count: this.state.count + 1
+    }, () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
+
+  incrementCountByFive(){ 
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+    this.incrementCount();
+  }
+  
+  correct way:
+  
+  incrementCount(){
+    //wrong way
+    // this.state.count = this.state.count + 1;
+    
+    this.setState((prevState) => ({
+      count: prevState.count + 1
+    }), () => {
+      console.log('Callback value', this.state.count);
+    })
+
+    //wrong way
+    //console.log(this.state.count);
+  }
+  
+  11. Destructuring props
+  
+  props are destrcutred for better usage
+  
+  const Greet = ({name,heroName, children }) => {
+  return (
+    <div>
+      <h1>Hello {name} a.k.a {heroName}</h1>
+      {children}
+    </div>
+  )
+}
+
+class Welcome extends Component {
+  render() {
+    const {name, heroName, children} = this.props;  // Destructuring props
+    return (
+      <div>
+        <h1>Welcome {name} a.k.a {heroName}</h1>
+        {children}
+      </div>
+
+    );
+  }
+}
