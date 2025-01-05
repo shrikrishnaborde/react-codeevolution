@@ -324,3 +324,23 @@ export default class ButtonClick extends Component {
 this is easiest way to attach event handlers  when when we want pass params
 
 <button onClick={() => this.clickHandler()}>Click</button>
+
+
+14. passing methods as props
+
+function ParentComponent() {
+
+  const clickHandler = (childName) => {
+    console.log(`${childName} clicked`)
+  }
+
+  return (
+    <ChildComponent clickHandler={clickHandler}/>
+  )
+}
+
+function ChildComponent(props) {
+  return (
+    <button onClick={() => props.clickHandler('Mark')}>Click</button>
+  )
+}
