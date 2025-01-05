@@ -396,3 +396,65 @@ render() {
       )
     )
   }
+  
+
+16. List Rendering
+
+Way 1:
+
+  const names = ['Bruce', 'Clark', 'Diana'];
+  return (
+    <div>
+    {
+      names.map(name => <h2>{name}</h2>)
+    }
+    </div>
+  )
+}
+
+Way 2:
+
+function NamedList() {
+  const names = ['Bruce', 'Clark', 'Diana'];
+  const namedList = names.map(name => <h2>{name}</h2>)
+  return (
+    <div>
+    {
+      namedList
+    }
+    </div>
+  )
+}
+
+when JSX is getting complex, it is advised to extract JSX in seperate component
+
+function NamedList() {
+  const heroes = [{
+    name: 'Bruce',
+    heroName: 'Batman'
+  }, {
+    name: 'Clark', 
+    heroName: 'Superman'
+  }, {
+    name: 'Diana',
+    heroName: 'Wonder Women'
+  }];
+
+  return (
+    <div>
+    <HeroesList heroes={heroes}/>
+    </div>
+  )
+}
+
+function HeroesList({heroes}) {
+  const heroesList = heroes.map(hero => <h2>{hero.name} a.k.a {hero.heroName}</h2>)
+    return (
+      <div>
+      {heroesList}
+      </div>
+    )
+}
+
+
+
