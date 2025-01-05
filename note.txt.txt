@@ -288,3 +288,33 @@ class Welcome extends Component {
     );
   }
 }
+
+12. event handling
+
+in functional components:
+
+const ClickButton = () => {
+
+  const clickHandler = () => {
+    console.log('Button clicked')
+  }
+
+  return (
+    <button onClick={clickHandler}>Click Me</button>
+  )
+}
+
+in class components:
+
+export default class ButtonClick extends Component {
+
+  clickHandler = () => {
+    console.log('Button clicked');
+  }
+
+  render() {
+    return (
+      <button onClick={this.clickHandler}>Click</button>
+    )
+  }
+}
