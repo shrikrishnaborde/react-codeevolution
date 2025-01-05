@@ -1,13 +1,21 @@
 import React from 'react'
+import HeroesList from './HeroesList';
 
 function NamedList() {
-  const names = ['Bruce', 'Clark', 'Diana'];
-  const namedList = names.map(name => <h2>{name}</h2>)
+  const heroes = [{
+    name: 'Bruce',
+    heroName: 'Batman'
+  }, {
+    name: 'Clark', 
+    heroName: 'Superman'
+  }, {
+    name: 'Diana',
+    heroName: 'Wonder Women'
+  }];
+
   return (
     <div>
-    {
-      namedList
-    }
+    <HeroesList heroes={heroes}/>
     </div>
   )
 }
