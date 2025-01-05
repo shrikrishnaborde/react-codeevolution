@@ -262,3 +262,29 @@ class Message extends Component {
     //wrong way
     //console.log(this.state.count);
   }
+  
+  11. Destructuring props
+  
+  props are destrcutred for better usage
+  
+  const Greet = ({name,heroName, children }) => {
+  return (
+    <div>
+      <h1>Hello {name} a.k.a {heroName}</h1>
+      {children}
+    </div>
+  )
+}
+
+class Welcome extends Component {
+  render() {
+    const {name, heroName, children} = this.props;  // Destructuring props
+    return (
+      <div>
+        <h1>Welcome {name} a.k.a {heroName}</h1>
+        {children}
+      </div>
+
+    );
+  }
+}
