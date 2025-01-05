@@ -468,5 +468,5 @@ function HeroesList({heroes}) {
     )
 }
 
-
+note that key value should be unique, don't use index valye as key
 
