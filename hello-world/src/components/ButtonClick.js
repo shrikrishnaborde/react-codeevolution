@@ -8,7 +8,7 @@ export default class ButtonClick extends Component {
 
   render() {
     return (
-      <button onClick={this.clickHandler}>Click</button>
+      <button onClick={() => this.clickHandler()}>Click</button>
     )
   }
 }

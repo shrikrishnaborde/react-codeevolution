@@ -318,3 +318,9 @@ export default class ButtonClick extends Component {
     )
   }
 }
+
+13. Binding event handlers
+
+this is easiest way to attach event handlers  when when we want pass params
+
+<button onClick={() => this.clickHandler()}>Click</button>
