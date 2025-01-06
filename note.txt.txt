@@ -499,5 +499,13 @@ Way2 :
 
 using inline styles
 
-
+function InlineStyles() {
+  const stylesObj = {
+    fontSize: 'large',
+    color: 'green'
+  }
+  return (
+    <div style={stylesObj}>InlineStyles</div>
+  )
+}
 
