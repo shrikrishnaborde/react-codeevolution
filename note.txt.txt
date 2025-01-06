@@ -509,3 +509,20 @@ function InlineStyles() {
   )
 }
 
+Way 3 :
+
+CSS Modules
+
+import style from '../styles/newStyles.module.css'
+
+function StyleSheet(props) {
+  return (
+    <div>
+      <div className={style.success}>Success</div>
+    </div>
+  )
+}
+
+advntage of using styles modules is styles are scoped to components and child component
+
+

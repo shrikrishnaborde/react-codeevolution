@@ -5,8 +5,8 @@ import StyleSheet from './components/StyleSheet';
 function App() {
   return (
     <div className="App">
-    {/*<StyleSheet primary="true"/>*/}
-    <InlineStyles />
+    <StyleSheet primary="true"/>
+    {/*<InlineStyles />*/}
     </div>
   );
 }

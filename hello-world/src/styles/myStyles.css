@@ -6,3 +6,7 @@
 .font-xl {
   font-size: large;
 }
+
+.failure {
+  color: red;
+}
