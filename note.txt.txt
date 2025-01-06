@@ -470,3 +470,25 @@ function HeroesList({heroes}) {
 
 note that key value should be unique, don't use index valye as key
 
+17. Styles
+
+there are many ways we can add styles to the component
+
+Way 1:
+
+importing style files
+
+import '../styles/myStyles.css'
+
+function StyleSheet() {
+  return (
+    <div className='primary'>Sharanya</div>
+  )
+}
+
+Way2 :
+
+using inline styles
+
+
+
