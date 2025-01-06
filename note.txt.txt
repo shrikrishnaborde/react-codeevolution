@@ -486,6 +486,15 @@ function StyleSheet() {
   )
 }
 
+if we want to render a class conditionally with other classes, we can do it like beloww
+
+function StyleSheet(props) {
+  const classes = props.primary ? 'primary': '';
+  return (
+    <div className={`${classes} font-xl`}>Sharanya</div>
+  )
+}
+
 Way2 :
 
 using inline styles

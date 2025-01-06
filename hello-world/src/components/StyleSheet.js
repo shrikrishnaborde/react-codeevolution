@@ -1,9 +1,10 @@
 import React from 'react'
 import '../styles/myStyles.css'
 
-function StyleSheet() {
+function StyleSheet(props) {
+  const classes = props.primary ? 'primary': '';
   return (
-    <div className='primary'>Sharanya</div>
+    <div className={`${classes} font-xl`}>Sharanya</div>
   )
 }
 

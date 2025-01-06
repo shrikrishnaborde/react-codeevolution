@@ -4,7 +4,7 @@ import StyleSheet from './components/StyleSheet';
 function App() {
   return (
     <div className="App">
-    <StyleSheet />
+    <StyleSheet primary="true"/>
     </div>
   );
 }
