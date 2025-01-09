@@ -660,3 +660,15 @@ i. static getDerivedStateFromError(error)
 ii. componentDisCatch(error,info)
 
 this methods are called if there is any error in component mounting, rendering or in constructor
+
+
+20. Fragments
+
+each JSX should return a single node
+adding div node will add lots of divs in DOM , sometimes adding div is not correct
+
+so for warppping multiple node without adding anything in DOM  we use fragments
+
+we can wrap nodes in React.Fragment or <> tag , we can also pass key prop to React.Fragment
+
+while in in list
