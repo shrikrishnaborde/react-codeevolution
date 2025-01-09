@@ -579,3 +579,84 @@ export class Form extends Component {
     )
   }
 }
+
+
+19.class compmponent lifecycle
+
+1. Mounting phase
+
+i. constructor(props)
+
+set the state and do any action bindings
+
+ii. static getDerivedStateFromProps(props,state)
+
+if component state depends on props , we use this method
+
+return new state
+
+iii. render
+
+only required method
+
+render the component and child components on DOM
+
+child component lifecycle methods will execute next to this render method.
+
+iv. componentDidMount
+
+Called immediately after component and its child component have beed rendered to DOM
+
+we can make side effects like HTTP calls, DOM update in this method since they are guarntee to exist
+
+2. Updating phase
+
+i. static getDerivedStateFromProps(props,state)
+
+called every time after component re-renders
+
+if component state depends on props , we use this method
+
+return new state
+
+ii. shouldComponentUpdate(nextState,nextProps)
+
+this will determine if component should renrender to DOM 
+
+used for performance optimization
+
+iii. render 
+
+render the JSX to DOM
+
+iv. getSnapshotBeforeUpdate(prevState,prevProps)
+
+this state called immediately before any updation commited to DOM
+
+so if you want to save anyhing like scroll position , we can do it here
+
+ It can return a value for React to pass as a parameter to componentDidUpdate, 
+ which gets called immediately after mutations.
+ 
+v. componentDisUpdate(prevState,prevProps, snapshot)
+
+called after updating the changes to DOM
+
+we can make side effects in this hook
+
+3. Unmounting phase
+
+i. componentWillUnmount()
+
+called before destroying the component
+
+we can destroy network requests, event handlers in this phase
+
+
+4. Error phase
+
+i. static getDerivedStateFromError(error)
+
+ii. componentDisCatch(error,info)
+
+this methods are called if there is any error in component mounting, rendering or in constructor
