@@ -733,3 +733,21 @@ a=b //equal
 c = [...a] 
 
 c===a //not equal 
+
+22. Memo components
+
+memo component are same as pure components but for functional components
+
+it changes only when props are changed
+
+import React from 'react'
+
+function MemoComponent(props) {
+  console.log('MemoComponent')
+
+  return (
+    <div>MemoComponent</div>
+  )
+}
+
+export default React.memo(MemoComponent)
