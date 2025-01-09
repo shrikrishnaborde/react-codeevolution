@@ -852,3 +852,21 @@ export class FRInputParentRef extends Component {
 }
 
 export default FRInputParentRef
+
+
+24. Portals
+
+if we want to host our component in another DOM node than root node, we can make
+use of portals. this is useful for hosting modal or popup or side screens
+
+
+import React from 'react'
+import ReactDOM from 'react-dom'  ;
+
+function PortalsDemo() {
+  return ReactDOM.createPortal(
+    <h1>Portals Demo</h1>
+  , document.getElementById('portal-root'))
+}
+
+export default PortalsDemo
