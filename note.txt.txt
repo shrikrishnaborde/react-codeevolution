@@ -751,3 +751,27 @@ function MemoComponent(props) {
 }
 
 export default React.memo(MemoComponent)
+
+23 Refs
+
+refs are refernce attached by react to DOM elemnts
+
+we can use it for DOM manipulation
+
+export class RefsDemo extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.inputRef = React.createRef()
+  }
+
+  componentDidMount() {
+    this.inputRef.current.focus();
+  }
+
+  render() {
+    return (
+      <input type="text" ref={this.inputRef} />
+    )
+  }
+}
