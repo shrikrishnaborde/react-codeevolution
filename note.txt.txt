@@ -725,3 +725,11 @@ export class ParentComponent extends Component {
     )
   }
 }
+
+shallow comparison is when both LHS and RHS points to same memory location
+
+a=b //equal
+
+c = [...a] 
+
+c===a //not equal 
