@@ -751,3 +751,104 @@ function MemoComponent(props) {
 }
 
 export default React.memo(MemoComponent)
+
+23 Refs
+
+refs are refernce attached by react to DOM elemnts
+
+we can use it for DOM manipulation
+
+export class RefsDemo extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.inputRef = React.createRef()
+  }
+
+  componentDidMount() {
+    this.inputRef.current.focus();
+  }
+
+  render() {
+    return (
+      <input type="text" ref={this.inputRef} />
+    )
+  }
+}
+
+we can aslo refernce the child component using ref
+
+
+export class Input extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.inputRef = React.createRef()
+  }
+
+  focusInput = () => {
+    this.inputRef.current.focus();
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" ref={this.inputRef} />
+      </div>
+    )
+  }
+}
+
+export class FocusInput extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.componentRef = React.createRef()
+  }
+
+  clickHandler = () => {
+    this.componentRef.current.focusInput()
+  }
+
+  render() {
+    return (
+      <>
+        <Input ref={this.componentRef} />
+        <button onClick={this.clickHandler}>Focus</button>
+      </>
+    )
+  }
+}
+
+we can also pass refs to child functional components using forwardRef HOC
+
+const FRInput = React.forwardRef((props,ref) => {
+  return (
+    <input type="text" ref={ref} />
+  )
+})
+
+export default FRInput
+
+export class FRInputParentRef extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.inputRef = React.createRef();
+  }
+
+  clickHandler = () => {
+    this.inputRef.current.focus();
+  }
+
+  render() {
+    return (
+      <>
+        <FRInput ref={this.inputRef} />
+        <button onClick={this.clickHandler}>Focus</button>
+      </>
+    )
+  }
+}
+
+export default FRInputParentRef
