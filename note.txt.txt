@@ -775,3 +775,47 @@ export class RefsDemo extends Component {
     )
   }
 }
+
+we can aslo refernce the child component using ref
+
+
+export class Input extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.inputRef = React.createRef()
+  }
+
+  focusInput = () => {
+    this.inputRef.current.focus();
+  }
+
+  render() {
+    return (
+      <div>
+        <input type="text" ref={this.inputRef} />
+      </div>
+    )
+  }
+}
+
+export class FocusInput extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.componentRef = React.createRef()
+  }
+
+  clickHandler = () => {
+    this.componentRef.current.focusInput()
+  }
+
+  render() {
+    return (
+      <>
+        <Input ref={this.componentRef} />
+        <button onClick={this.clickHandler}>Focus</button>
+      </>
+    )
+  }
+}
